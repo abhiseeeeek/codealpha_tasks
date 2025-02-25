@@ -1,0 +1,47 @@
+<!-- templates/cart.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Shopping Cart</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <nav>
+      <a href="{% url 'product_list' %}">Continue Shopping</a>
+    </nav>
+  </header>
+  <main>
+    {% if cart_items %}
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price per item</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart_items %}
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ item.product.price }}</td>
+            <td>${{ item.total_price }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <h3>Grand Total: ${{ grand_total }}</h3>
+      <!-- A simple order process button (this is just illustrative) -->
+      <button onclick="alert('Order placed!')">Place Order</button>
+    {% else %}
+      <p>Your cart is empty.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
