@@ -1,0 +1,32 @@
+/* Container for product listings using a responsive grid */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Style for each product card */
+.product-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Make sure the content area grows to take available space */
+.product-card .content {
+  flex-grow: 1;
+}
+
+/* Force images to be uniform */
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 15px;
+}
