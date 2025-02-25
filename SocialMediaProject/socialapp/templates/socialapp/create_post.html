@@ -1,0 +1,12 @@
+<!-- templates/socialapp/create_post.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h1>Create a Post</h1>
+<form method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <textarea name="content" rows="5" class="form-control" placeholder="What's on your mind?"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Post</button>
+</form>
+{% endblock %}
